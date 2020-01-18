@@ -6,13 +6,15 @@ import * as Font from "expo-font";
 import productsReducer from "./store/reducers/products";
 import cartReducer from "./store/reducers/cart";
 import OrderReducer from "./store/reducers/orders";
-import ShopNavigator from "./navigation/ShopNavigator";
+import authReducer from "./store/reducers/auth";
+import NavigationContainer from "./navigation/NavigationContainer";
 import ReduxThunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
-  orders: OrderReducer
+  orders: OrderReducer,
+  auth: authReducer
 });
 
 const fetchFonts = () => {
@@ -38,7 +40,7 @@ export default function App() {
   }
   return (
     <Provider store={store}>
-      <ShopNavigator />
+      <NavigationContainer />
     </Provider>
   );
 }
